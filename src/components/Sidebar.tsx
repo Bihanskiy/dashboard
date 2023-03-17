@@ -36,7 +36,7 @@ const Sidebar: FC<SidebarType> = ({ children }) => {
   const router = useRouter();
 
   return (
-    <div className='flex'>
+    <div className='flex z-[100]'>
       <div className='fixed w-16 sm:w-24 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>
         <div className='flex flex-col items-center'>
           <Link href='/'>

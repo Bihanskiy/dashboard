@@ -13,7 +13,7 @@ const TotalChangeCard: FC<TotalChangeCardType> = ({ cardData }) => {
 
   return (
     <div className='bg-main-purple flex justify-between items-center flex-wrap gap-6 w-full border py-10 px-6 rounded-[20px]'>
-      <div className={'bg-blue flex justify-center items-center shrink-0 w-11 h-11 text-white rounded-lg' + " " + (isOutcome && 'bg-[#6359E9]')}>
+      <div className={'flex justify-center items-center shrink-0 w-11 h-11 text-white rounded-lg' + " " + (isOutcome ? 'bg-[#6359E9]' : 'bg-blue')}>
         {isIncome && <RiArrowLeftDownLine size={25} />}
         {isOutcome && <RiArrowRightUpLine size={25} />}
       </div>
@@ -26,8 +26,8 @@ const TotalChangeCard: FC<TotalChangeCardType> = ({ cardData }) => {
           {cardData.amount}
         </p>
       </div>
-      <p className={'bg-bg-green self-end flex justify-center items-center py-1 px-2 rounded-lg shrink-0' + " " + (isOutcome && 'bg-[#EB001B26]')}>
-        <span className={'text-green-700 text-sm' + " " + (isOutcome && 'text-red-700')}>
+      <p className={'self-end flex justify-center items-center py-1 px-2 rounded-lg shrink-0' + " " + (isOutcome ? 'bg-[#EB001B26]' : 'bg-bg-green')}>
+        <span className={'text-sm' + " " + (isOutcome ? 'text-red-700' : 'text-green-700')}>
           {cardData.percentageСhange}
         </span>
       </p>
