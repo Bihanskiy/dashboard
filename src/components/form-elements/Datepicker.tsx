@@ -10,6 +10,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 const CustomDatePicker = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+
   return (
     <div className="relative">
       <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-second-purple">

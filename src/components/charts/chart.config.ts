@@ -1,61 +1,22 @@
-import { ApexOptions } from "apexcharts";
-
-export const TotalRevenueSeries = [
+export const AnalyticsDatasets = [
   {
-    name: "Last Month",
-    data: [183, 124, 115, 85, 143, 143, 96],
+    label: 'Outcome',
+    data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
+    backgroundColor: '#64CFF6',
+    barPercentage: 0.5,
+    barThickness: 13,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    borderRadius: 10,
   },
   {
-    name: "Running Month",
-    data: [95, 84, 72, 44, 108, 108, 47],
+    label: 'Income',
+    data: [1812, 22231, 17335, 17968, 24482, 17843, 22455],
+    backgroundColor: '#6359E9',
+    barPercentage: 0.5,
+    barThickness: 13,
+    maxBarThickness: 8,
+    minBarLength: 2,
+    borderRadius: 10,
   },
 ];
-
-export const TotalRevenueOptions: ApexOptions = {
-  chart: {
-    type: "bar",
-    toolbar: {
-      show: false,
-    },
-  },
-  colors: ["#475BE8", "#CFC8FF"],
-  plotOptions: {
-    bar: {
-      borderRadius: 4,
-      horizontal: false,
-      columnWidth: "55%",
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  grid: {
-    show: false,
-  },
-  stroke: {
-    colors: ["transparent"],
-    width: 4,
-  },
-  xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-  },
-  yaxis: {
-    title: {
-      text: "$ (thousands)",
-    },
-  },
-  fill: {
-    opacity: 1,
-  },
-  legend: {
-    position: "top",
-    horizontalAlign: "right",
-  },
-  tooltip: {
-    y: {
-      formatter(val: number) {
-        return `$ ${val} thousands`;
-      },
-    },
-  },
-};

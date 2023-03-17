@@ -37,7 +37,7 @@ const Sidebar: FC<SidebarType> = ({ children }) => {
 
   return (
     <div className='flex'>
-      <div className='fixed w-24 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>
+      <div className='fixed w-16 sm:w-24 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between'>
         <div className='flex flex-col items-center'>
           <Link href='/'>
             <div>
@@ -61,7 +61,7 @@ const Sidebar: FC<SidebarType> = ({ children }) => {
           ))}
         </div>
       </div>
-      <div className='ml-24 w-full'>{children}</div>
+      <div className='ml-16 sm:ml-24 w-full'>{children}</div>
     </div>
   );
 };

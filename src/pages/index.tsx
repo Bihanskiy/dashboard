@@ -3,9 +3,21 @@ import TopCards from '@/components/TopCards'
 import Transaction from '@/components/Transaction'
 import AnalyticsChart from '@/components/charts/AnalyticsChart'
 import Layout from '@/layouts/MainLayout'
+import TransactionService from '../services/TransactionService'
+import { GetServerSideProps } from "next";
+import { ITransactionData } from '../types/TransactionType';
+import { IError } from '../types/RequestsType';
+
+interface HomeType {
+  transactionData: {
+    data: ITransactionData[];
+    error: IError;
+  }
+}
 
 
-export default function Home() {
+export default function Home({ transactionData }: HomeType) {
+
   return (
     <>
       <Head>
@@ -18,7 +30,7 @@ export default function Home() {
         <TopCards />
         <div className='flex justify-between items-start gap-10 flex-col xl:flex-row'>
           <div className='max-w-[685px] w-full'>
-            <Transaction />
+            <Transaction transactionData={transactionData} />
           </div>
           <div className='max-w-[665px] w-full'>
             <AnalyticsChart />
@@ -27,4 +39,19 @@ export default function Home() {
       </Layout>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+
+  const transactionResponse = await TransactionService.GetTransactions();
+
+  return {
+    props: {
+      transactionData: {
+        data: transactionResponse?.data?.transactions ?? null,
+        error: transactionResponse?.error ?? null,
+      }
+    }
+  }
+
 }
